@@ -5,3 +5,8 @@
 .DS_Store
 Icon\r
 Icon?
+<<<<<<< HEAD
+=======
+.*
+!/.gitignore
+>>>>>>> 37b79b9c2047b91cb94e9edc2ad08a4adf6b5690

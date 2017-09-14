@@ -6,8 +6,13 @@ library(dplyr)
 library(pROC)
 library(ggplot2)
 
+<<<<<<< HEAD
 setwd("~/Box Sync/MIND_2017/Hackathon/Ben/reversallearning/nate_files")
 
+=======
+#setwd("~/Box Sync/MIND_2017/Hackathon/Ben/reversallearning/nate_files")
+setwd("nate_files")
+>>>>>>> 37b79b9c2047b91cb94e9edc2ad08a4adf6b5690
 source("Misc/freq_replace.R")
 source("Misc/plot_model.R")
 
@@ -132,8 +137,14 @@ m1 <- stan_model(paste0("Final_Models/", use_model,".stan"))
 fit <- vb(m1, data = dataList, adapt_engaged = F, eta = 1)
 
 # Compute AUC
+<<<<<<< HEAD
 parVals <- extract(fit)
 
+=======
+parVals <- rstan::extract(fit)
+
+#shape the data into a format suitable for plotting.
+>>>>>>> 37b79b9c2047b91cb94e9edc2ad08a4adf6b5690
 for_plot <- NULL
 for_plot$subjID <- reshape2::melt(apply(parVals$p_subjID, c(2,3), mean, na.rm=T))[,3]
 for_plot$cor_res <- reshape2::melt(apply(parVals$p_cor_res, c(2,3), mean, na.rm=T))[,3]
@@ -156,4 +167,8 @@ for_plot$actual_correct <- ifelse(for_plot$outcome==1, 1, 0)
 for_plot$pred_correct <- ifelse((for_plot$y_hat==for_plot$choice & for_plot$outcome==1) | (for_plot$y_hat!=for_plot$choice & for_plot$outcome!=1), 1, 0)
 
 fit_data <- list(fit = fit, plot_object = for_plot)
+<<<<<<< HEAD
+=======
+plot_model(fit_data)
+>>>>>>> 37b79b9c2047b91cb94e9edc2ad08a4adf6b5690
 save(fit_data, file = paste0("Fits/", use_model, "_", descr, "_rew1_pun-1.RData"))
