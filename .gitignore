@@ -9,4 +9,8 @@ Icon?
 =======
 .*
 !/.gitignore
+<<<<<<< HEAD
 >>>>>>> 37b79b9c2047b91cb94e9edc2ad08a4adf6b5690
+=======
+Rlocalsettings.RData
+>>>>>>> f96a64690de590856afcb3c3a9b51673cf3e5463
